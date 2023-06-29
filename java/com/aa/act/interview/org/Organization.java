@@ -22,6 +22,12 @@ public abstract class Organization {
      * @return the newly filled position or empty if no position has that title
      */
     public Optional<Position> hire(Name person, String title) {
+        if (root.getTitle().equalsIgnoreCase(title)){
+            Employee newEmployee = new Employee(numberOfEmployees + 1, person);
+            root.setEmployee(newEmployee);
+            numberOfEmployees++;
+            return Optional.of(root);
+        }
         return fillPosition(root, person, title);
     }
 
@@ -30,8 +36,8 @@ public abstract class Organization {
         return printOrganization(root, "");
     }
 
-    private Optional<Position> fillPosition(Position organizationGroup, Name person, String title) {
-        for(Position position : organizationGroup.getDirectReports()) {
+    private Optional<Position> fillPosition(Position currentLevel, Name person, String title) {
+        for(Position position : currentLevel.getDirectReports()) {
             if (position.getTitle().equalsIgnoreCase(title)) {
                 Employee newEmployee = new Employee(numberOfEmployees + 1, person);
                 position.setEmployee(newEmployee);

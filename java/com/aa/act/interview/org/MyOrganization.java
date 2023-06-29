@@ -6,7 +6,9 @@ public class MyOrganization extends Organization {
     protected Position createOrganization() {
         Position ceo = new Position("CEO");
         Position pres = new Position("President");
+        Position se = new Position("Software Engineer");
         ceo.addDirectReport(pres);
+        ceo.addDirectReport(se);
         Position vpm = new Position("VP Marketing");
         pres.addDirectReport(vpm);
         Position vps = new Position("VP Sales");
@@ -44,6 +46,7 @@ public class MyOrganization extends Organization {
         myOrg.hire(new Name("Head", "Geek"), "VP Technology");
         myOrg.hire(new Name("Steve", "Dent"), "VP Infrastructure");
         myOrg.hire(new Name("Slick", "Willie"), "Salesperson");
+        myOrg.hire(new Name("Retton", "Ranile"), "SOFTWARE Engineer");
         System.out.println(myOrg);
     }
 }
