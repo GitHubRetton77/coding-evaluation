@@ -31,7 +31,7 @@ public class MyOrganization extends Organization {
         return ceo;
     }
 
-    public static final void main(String... args) {
+    public static void main(String... args) {
         MyOrganization myOrg = new MyOrganization();
         myOrg.hire(new Name("Bob", "Smith"), "CEO");
         myOrg.hire(new Name("Zaphod", "Beeblebrox"), "President");

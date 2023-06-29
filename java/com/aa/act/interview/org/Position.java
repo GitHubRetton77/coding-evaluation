@@ -21,15 +21,15 @@ public class Position {
     public Position(String title, Employee employee) {
         this(title);
         if(employee != null)
-            setEmployee(Optional.of(employee));
+            setEmployee(employee);
     }
     
     public String getTitle() {
         return title;
     }
     
-    public void setEmployee(Optional<Employee> employee) {
-        this.employee = employee;
+    public void setEmployee(Employee employee) {
+        this.employee = Optional.of(employee);
     }
     
     public Optional<Employee> getEmployee() {
